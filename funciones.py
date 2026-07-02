@@ -1,8 +1,8 @@
 def m_menu():
     print("========== MENÚ PRINCIPAL ==========")
     print("1. Agregar estudiante")
-    print("2.")
-    print("3.")
+    print("2. Búsqueda estudiantes")
+    print("3. Eliminar estudiantes")
     print("4. Actualizar estados")
     print("5. Mostrar estudiantes")
     print("6. Salir")
@@ -111,3 +111,57 @@ def m_estudiantes(lista):
             print("Estado: REPROBADO")
         print("*" * 40)
     input("\nPresione Enter para continuar...")
+
+def b_estudiante(lista):
+    limpiar_pantalla()
+    print("=== BUSCAR ESTUDIANTE ===")
+    if not lista:
+        print("La lista se encuentra vacía")
+        input("Presione enter para continuar...")
+        return
+    busqueda = input("Igrese el nombre y apellido del estudiante a buscar: ")
+    encontrado = False
+
+    for estudiante in lista:
+        if busqueda in estudiante["nombre"].lower():
+            print("Estudiante encontrado con exito")
+            print("Nombre: ", estudiante["nombre"])
+            print("Edad: ", estudiante["edad"])
+            print("Nota: ", estudiante["nota"])
+            estado = "APROBADO" if estudiante["aprobado"] else "REPROBADO"
+            print("Estado: ", estado)
+            print("*" * 40)
+            encontrado = True
+            break
+
+    if not encontrado:
+        print("No se encontraron registros")
+
+    input("Presione enter para continuar...")
+
+def e_estudiante(lista):
+    limpiar_pantalla()
+    print("=== ELIMINAR ESTUDIANTE ===")
+    if not lista:
+        print("La lista se encuentra vacia")
+
+    busqueda = input("Igrese el nombre y apellido del estudiante a eliminar: ").strip().lower()
+    encontrado = False
+
+    for estudiante in lista:
+        if estudiante["nombre"].lower() == busqueda:
+            print(f"Estudiante '{estudiante['nombre']}' ha sido eliminado.")
+            lista.remove(estudiante)
+            encontrado = True
+            break
+
+        if not encontrado:
+            print("No se encontraron registros coincidentes")
+
+        input("Presione enter para continuar...")
+       
+            
+            
+
+    
+    

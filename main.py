@@ -14,9 +14,9 @@ try:
         if opcion == 1:
             funciones.a_estudiante(lista_estudiantes)
         elif opcion == 2:
-            pass
+            funciones.b_estudiante(lista_estudiantes)
         elif opcion == 3:
-            pass
+            funciones.e_estudiante(lista_estudiantes)
         elif opcion == 4:
             funciones.limpiar_pantalla()
             funciones.a_estados(lista_estudiantes)
